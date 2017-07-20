@@ -1,0 +1,57 @@
+<html ng-app="authModule">
+    <head>
+       <title>Register</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    </head>
+    <body>
+       <div class="container" ng-controller="registerController">
+                <p class="alert alert-info">Use the form below to create a new user account. If you already have a user account, <a href="/indexlogin.html">Click to go to Login Page</a>
+                </p>
+
+            <h1>Create a New User Account</h1>
+
+                         <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User Name</th>
+                            <th>User Password</th>
+                            <th>UserEmail</th>
+                            <th>User Full Name</th>
+                            <th>Account Timestamp</th>
+                                                        <th>User Signature</th>
+                                                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td><input class="form-control" ng-model="user.username"></td>
+                                <td><input class="form-control" type="password" ng-model="user.password"></td>
+                                <td><input class="form-control" ng-model="user.email"></td>
+                                <td><input class="form-control" ng-model="user.fullname"></td>
+                                <td><input class="form-control" ng-model="user.creationdate"></td>
+                                <td><input class="form-control" ng-model="user.signature"></td>
+                                <td><button class="btn btn-primary" ng-click="addUser()">Add User</button></td>
+                                <td><button class="btn btn-info" ng-click="updateUser()">Update User</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="clear()">Clear</button></td>
+                            </tr>
+                            <tr ng-repeat="user in userList">
+                                                <td>{{user.username}}</td>
+                                                <td></td>
+                                                <td>{{user.email}}</td>
+                                                <td>{{user.fullname}}</td>
+                                                <td>{{user.creationdate}}</td>
+                                                <td>{{user.signature}}</td>
+                                                <td><button class="btn btn-danger" ng-click="removeUser(user._id)">Remove User</button></td>
+                                                <td><button class="btn btn-warning" ng-click="editUser(user._id)">Edit User</button></td>
+                            </tr>
+                      </tbody>
+                </table>
+       </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+            <script src="controllers/registerController.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
+</html>
